@@ -1,66 +1,45 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// src/app/page.tsx
+
+"use client";
+
+import { useState, useEffect } from "react";
+import type { ApplicationContext } from "@sitecore-marketplace-sdk/client";
+import { useMarketplaceClient } from "@/utils/hooks/useMarketplaceClient";
 
 export default function Home() {
+  const { client, error, isInitialized } = useMarketplaceClient();
+  const [appContext, setAppContext] = useState<ApplicationContext>();
+
+  useEffect(() => {
+    if (!error && isInitialized && client) {
+      console.log("Marketplace client initialized successfully.");
+
+      // Make a query to retrieve the application context
+      client.query("application.context")
+        .then((res) => {
+          console.log("Success retrieving application.context:", res.data);
+          setAppContext(res.data);
+        })
+        .catch((error) => {
+          console.error("Error retrieving application.context:", error);
+        });
+    } else if (error) {
+      console.error("Error initializing Marketplace client:", error);
+    }
+  }, [client, error, isInitialized]);
+
+  if (!appContext) {
+    return null;
+  }
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <p>You are operating in the <b>{process.env.NODE_ENV}</b> environment.</p>
+      {process.env.NODE_ENV === "production" && (
+        <p style={{ color: "red", fontWeight: 600 }}>
+          Please be extra careful!!!
+        </p>
+      )}
+    </>
   );
 }
