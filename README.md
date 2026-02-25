@@ -14,3 +14,7 @@ The Traffic Light app addresses this need by displaying a visual signal within t
 # Contribution
 Hope you found this repository helpful! Your contributions and suggestions are always welcome. Please feel free to submit a pull request.
 
+# License
+The SitecoreAI Apps repository is released under the MIT License allowing you to modify and use the code freely including for commercial purposes.
+If you find this repository useful please consider giving it a star to show your support and share your positive experience!
+
