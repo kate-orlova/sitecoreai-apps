@@ -1,3 +1,9 @@
+[![GitHub license](https://img.shields.io/github/license/kate-orlova/sitecoreai-apps.svg)](https://github.com/kate-orlova/sitecoreai-apps/blob/master/LICENSE)
+![GitHub language count](https://img.shields.io/github/languages/count/kate-orlova/sitecoreai-apps.svg?style=flat)
+![GitHub top language](https://img.shields.io/github/languages/top/kate-orlova/sitecoreai-apps.svg?style=flat)
+![GitHub repo size](https://img.shields.io/github/repo-size/kate-orlova/sitecoreai-apps.svg?style=flat)
+![GitHub contributors](https://img.shields.io/github/contributors/kate-orlova/sitecoreai-apps)
+
 # SitecoreAI Apps
 The SitecoreAI Apps code repository is a collection of useful Marketplace applications designed to extend and customise your SitecoreAI experience and functionality.
 
