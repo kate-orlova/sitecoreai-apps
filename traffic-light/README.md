@@ -1,3 +1,12 @@
+# Traffic Light
+The Cloud Portal URL is the same across all environments and content editors often want a clear visual indication of which environment they are operating in with an extra prompt when editing live content.
+The Traffic Light app addresses this need by displaying a visual signal within the Page Builder to show the current environment. It also offers context-specific actions helping editors understand what actions are permitted in each environment.
+
+![Traffic Light App in the Page Context Panel of the Page Builder](../assets/traffic-light/traffic-light-app-prod.png)
+
+
+# Configuration
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
