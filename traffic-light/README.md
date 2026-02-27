@@ -1,45 +1,41 @@
 # Traffic Light
-The Cloud Portal URL is the same across all environments and content editors often want a clear visual indication of which environment they are operating in with an extra prompt when editing live content.
+There is a single entry point to access the Cloud Portal for all environments and content editors often want a clear visual indication of which environment they are operating in with an extra prompt when editing live content.
 The Traffic Light app addresses this need by displaying a visual signal within the Page Builder to show the current environment. It also offers context-specific actions helping editors understand what actions are permitted in each environment.
 
 ![Traffic Light App in the Page Context Panel of the Page Builder](../assets/traffic-light/traffic-light-app-prod.png)
 
 
 # Configuration
-
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This is a [Next.js App Router](https://nextjs.org) app created using the [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) command:
 ```
+npx create-next-app@latest
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```
+Before proceeding with further configuration, make sure you have the following prerequisites installed:
+ - [Node.js](https://nodejs.org/) 16 or later
+ - [npm 10](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or later
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+If you wish, you can create a React or Next.js Pages Router app by following the official Sitecore guidelines [here](https://doc.sitecore.com/mp/en/developers/sdk/latest/sitecore-marketplace-sdk/quick-start--manual-.html#install-the-packages).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Once your app is created you need to initialise the **Marketplace SDK** and activate it in the **Cloud Portal -> App Studio** following the below steps.
 
-## Learn More
+## Step 1: Initialise the Marketplace SDK and start your app
+**1.1** Initialise the Marketplace SDK by creating a hook that will manage the SDK’s initialisation & state and handle communication with `window.parent` so the app can run in an `iframe` within the Cloud Portal. See implementation in [/src/utils/hooks/useMarketplaceClient.ts](src/utils/hooks/useMarketplaceClient.tsx)
 
-To learn more about Next.js, take a look at the following resources:
+**1.2** Initialise the Marketplace Client in an Effect Hook and query the API in the app’s main page `src/app/page.tsx`. The script will:
+ - check if the Marketplace client is initialised using `useEffect()` hook;
+ - query the API and fetch your app content via `client.query("application.context")`;
+ - extract the app information from the API response and store it in state via `setAppContext(res.data)`;
+ - analyse the environment variable and display the relevant messaging in the user interface, for example: _"You are operating in the production environment. Please be extra careful!!!"_.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+See implementation in [src/app/page.tsx](src/app/page.tsx).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+c)	Start the app by running `npm run dev` in your terminal and open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Contribution
+Hope you found the Traffic Light app helpful! Your contributions and suggestions are always welcome. Please feel free to submit a pull request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# License
+The SitecoreAI Apps repository is released under the MIT License allowing you to modify and use the code freely including for commercial purposes. Hope this example provides a solid foundation to help you create and customise your own apps to meet your bespoke needs.
+If you find this repository useful please consider giving it a star to show your support and share your positive experience!
