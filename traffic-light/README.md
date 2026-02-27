@@ -15,7 +15,7 @@ Before proceeding with further configuration, make sure you have the following p
  - [Node.js](https://nodejs.org/) 16 or later
  - [npm 10](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or later
 
-If you wish, you can create a React or Next.js Pages Router app by following the official Sitecore guidelines [here](https://doc.sitecore.com/mp/en/developers/sdk/latest/sitecore-marketplace-sdk/quick-start--manual-.html#install-the-packages).
+If you wish, you can create a React or Next.js Pages Router app by following the official Sitecore guidelines [here](https://doc.sitecore.com/mp/en/developers/sdk/latest/sitecore-marketplace-sdk/quick-start--manual-.html).
 
 Once your app is created you need to initialise the **Marketplace SDK** and activate it in the **Cloud Portal -> App Studio** following the below steps.
 
@@ -30,7 +30,23 @@ Once your app is created you need to initialise the **Marketplace SDK** and acti
 
 See implementation in [src/app/page.tsx](src/app/page.tsx).
 
-c)	Start the app by running `npm run dev` in your terminal and open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+**1.3**	Start the app by running `npm run dev` in your terminal and open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## Step 2: Register, configure and activate the app in the Cloud Portal -> App Studio 
+**2.1** Log in to the **[Cloud Portal](https://portal.sitecorecloud.io/)** and navigate to the **App studio**. Click the _Create app_ button to start creating a new app;
+
+**2.2** In the **Create app** modal window select a _Custom_ app type, enter your future app name and click _Create_ button to proceed;
+
+**2.3** After creating the app, configure it by providing the following details:
+ - enable **Extension Points**: _Full screen_ and _Page context panel_, i.e. left-hand panel in the Page Builder;
+ - set **Deployment URL** to `http://localhost:3000` which is a typical localhost address for Next.js app;
+![Traffic Light App configuration](../assets/traffic-light/traffic-light-app-settings.png)
+
+**2.4** Make sure to **activate** and **install** the app before starting any testing!
+
+
+For more information on configuring a custom app refer to the official Sitecore documentation [here](https://doc.sitecore.com/mp/en/developers/marketplace/configure-and-activate-a-custom-app.html).
+
 
 
 # Contribution
