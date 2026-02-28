@@ -1,3 +1,5 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/kate-orlova/sitecoreai-apps)
+[![GitHub release](https://img.shields.io/github/release-date/kate-orlova/sitecoreai-apps.svg?style=flat)](https://github.com/kate-orlova/sitecoreai-apps/releases/tag/v1.0)
 [![GitHub license](https://img.shields.io/github/license/kate-orlova/sitecoreai-apps.svg)](https://github.com/kate-orlova/sitecoreai-apps/blob/master/LICENSE)
 ![GitHub language count](https://img.shields.io/github/languages/count/kate-orlova/sitecoreai-apps.svg?style=flat)
 ![GitHub top language](https://img.shields.io/github/languages/top/kate-orlova/sitecoreai-apps.svg?style=flat)
