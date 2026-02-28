@@ -32,10 +32,12 @@ See implementation in [src/app/page.tsx](src/app/page.tsx).
 
 **1.3**	Start the app by running `npm run dev` in your terminal and open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## Step 2: Register, configure and activate the app in the Cloud Portal -> App Studio 
+## Step 2: Register, configure and activate your app in the Cloud Portal -> App Studio 
 **2.1** Log in to the **[Cloud Portal](https://portal.sitecorecloud.io/)** and navigate to the **App studio**. Click the _Create app_ button to start creating a new app;
+<img src="../assets/traffic-light/app-studio.png" width="600" alt="App studio" />
 
-**2.2** In the **Create app** modal window select a _Custom_ app type, enter your future app name and click _Create_ button to proceed;
+**2.2** In the **Create app** modal window select a _Custom_ app type, enter your future app name (_“Traffic Light”_ in my example) and click _Create_ button to proceed;
+<img src="../assets/traffic-light/create-app.png" width="600" alt="Create app" />
 
 **2.3** After creating the app, configure it by providing the following details:
  - enable **Extension Points**: _Full screen_ and _Page context panel_, i.e. left-hand panel in the Page Builder;
@@ -43,10 +45,16 @@ See implementation in [src/app/page.tsx](src/app/page.tsx).
 ![Traffic Light App configuration](../assets/traffic-light/traffic-light-app-settings.png)
 
 **2.4** Make sure to **activate** and **install** the app before starting any testing!
-
+![My apps](../assets/traffic-light/my-apps.png)
 
 For more information on configuring a custom app refer to the official Sitecore documentation [here](https://doc.sitecore.com/mp/en/developers/marketplace/configure-and-activate-a-custom-app.html).
 
+## Step 3: Test and preview your app in the Page Builder  
+Once the app is installed you can preview it in the Page context panel within the Page Builder. To do this, open the Page Builder and click the _Apps_ icon.
+![Page builder apps](../assets/traffic-light/page-builder-apps.png)
+
+You should see your app listed in the Apps panel. So, simply select it to open. In my example, the app is **Traffic Light** which displays the environment information in the Page content panel.
+![Page builder app selection](../assets/traffic-light/page-builder-app-selection.png)
 
 
 # Contribution
